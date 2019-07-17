@@ -1,12 +1,25 @@
 class Vampire():
-    #coven = []
+    coven = []
+
+    #These are instance methods.
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+        self.in_coffin = True
+        self.drank_blood_today = True
 
 
-    #init
-        #name, age, in_coffin, drank_blood_today
 
-    #create()
-        #Add to coven
+
+
+
+    @classmethod
+    def create(cls, name, age):
+        new_vampire = Vampire(name, age)
+        cls.coven.append(new_vampire)
+        return new_vampire
+
+
 
     #drink_blood()
         # drank_blood_today = true
@@ -24,3 +37,8 @@ class Vampire():
 
     #go_home
         #in_coffin to true
+    pass
+
+print(Vampire)
+
+dracula = Vampire.create('Dracula', 122)
