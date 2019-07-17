@@ -21,24 +21,48 @@ class Vampire():
 
 
 
-    #drink_blood()
-        # drank_blood_today = true
+
+    def drink_blood(self):
+        self.drank_blood_today = True
+        return f'{self.name} has sated their appetite by drinking blood..'
 
     #sunrise()
         # for all vampires in coven
             #if out_of_coffin or no drank blood today
                 # Remove from coffin
 
-    #sunset()
-        #for all vampires in coven
-            #drank_blood_today is false
-            #in_coffin is false
+    @classmethod
+    def sunset(cls):
+        for vampire in cls.coven:
+            vampire.drank_blood_today = False
+            vampire.in_coffin = False
+
+            # print(f'{vampire.name} - {vampire.in_coffin} - {vampire.drank_blood_today}')
 
 
-    #go_home
-        #in_coffin to true
-    pass
+
+    def go_home(self):
+        self.in_coffin = True
+        return f'{self.name} is returning to their coffin..'
 
 print(Vampire)
 
 dracula = Vampire.create('Dracula', 122)
+print(f'{dracula.name} - {dracula.age} - {dracula.in_coffin} - {dracula.drank_blood_today}')
+
+nosferatu = Vampire.create('Nosferatu', 97)
+
+blade = Vampire.create('Blade', 90)
+
+blade = Vampire.create('Blade', 90)
+
+von_count = Vampire.create('Count von Count', 1832652)
+
+
+
+print(dracula.drink_blood())
+
+print(dracula.go_home())
+
+Vampire.sunset()
+
